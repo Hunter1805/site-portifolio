@@ -11,6 +11,7 @@ import Comparison from './components/Comparison';
 import Services from './components/Services';
 import Process from './components/Process';
 import Cta from './components/Cta';
+import ExampleProjects from './components/ExampleProjects';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 
@@ -26,6 +27,7 @@ export default function App() {
         <Services />
         <Process />
         <Cta />
+        <ExampleProjects />
         <Contact />
       </main>
       <Footer />
