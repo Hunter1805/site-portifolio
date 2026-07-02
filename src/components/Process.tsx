@@ -1,26 +1,182 @@
-import { Reveal } from './Reveal';
-import { processData } from '../data';
+import React, { useEffect, useRef, useState } from 'react';
+import { MessageSquare, Palette, Code2, Rocket } from 'lucide-react';
+
+interface Step {
+  number: string;
+  title: string;
+  description: string;
+  icon: React.ReactNode;
+  details: string[];
+  duration: string;
+}
+
+const steps: Step[] = [
+  {
+    number: '01',
+    title: 'Conversa Inicial',
+    description: 'Entendemos seu público, sua oferta e como otimizar seu funil',
+    icon: <MessageSquare className="w-8 h-8" />,
+    details: [
+      'Análise do seu negócio',
+      'Entrevista com stakeholders',
+      'Definição de objetivos'
+    ],
+    duration: '~30 minutos'
+  },
+  {
+    number: '02',
+    title: 'Design & Estratégia',
+    description: 'Criamos protótipo focado em persuasão e UX mobile',
+    icon: <Palette className="w-8 h-8" />,
+    details: [
+      'Wireframes e mockups',
+      'Estratégia de conversão',
+      'Aprovação do cliente'
+    ],
+    duration: '3-5 dias'
+  },
+  {
+    number: '03',
+    title: 'Desenvolvimento',
+    description: 'Codificação limpa, otimizada para SEO e velocidade',
+    icon: <Code2 className="w-8 h-8" />,
+    details: [
+      'Desenvolvimento frontend',
+      'Integração com APIs',
+      'Testes de qualidade'
+    ],
+    duration: '5-10 dias'
+  },
+  {
+    number: '04',
+    title: 'Lançamento',
+    description: 'Site no ar, integrado ao WhatsApp e pronto para vender',
+    icon: <Rocket className="w-8 h-8" />,
+    details: [
+      'Deploy em produção',
+      'Configuração de domínio',
+      'Suporte inicial'
+    ],
+    duration: '1-2 dias'
+  }
+];
 
 export default function Process() {
+  const [visibleItems, setVisibleItems] = useState<Set<number>>(new Set());
+  const refs = useRef<Map<number, HTMLDivElement>>(new Map());
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const index = parseInt(entry.target.getAttribute('data-index') || '0');
+            setVisibleItems((prev) => new Set(prev).add(index));
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    refs.current.forEach((ref) => observer.observe(ref));
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section className="py-32 px-6 max-w-7xl mx-auto">
-      <Reveal className="mb-16">
-        <span className="font-sans text-sm text-brand-sky uppercase tracking-[0.2em] font-medium block mb-2">Metodologia</span>
-        <h2 className="font-display text-4xl md:text-5xl font-bold text-gray-900 tracking-tight">Seu projeto pronto em até uma semana</h2>
-      </Reveal>
-      
-      <div className="relative">
-        <div className="hidden lg:block absolute top-1/2 left-0 w-full h-px bg-gray-200 -translate-y-1/2"></div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative">
-          {processData.map((step) => (
-            <Reveal key={step.id} className="bg-white border border-gray-200 p-8 z-10 hover-lift rounded-md shadow-sm">
-              <div className={`w-12 h-12 rounded-full flex items-center justify-center font-display font-bold text-lg mb-6 ${step.id === 4 ? 'bg-brand-sky text-white' : 'bg-black text-white'}`}>
-                {String(step.id).padStart(2, '0')}
+    <section className="py-20 bg-white">
+      <div className="container max-w-7xl mx-auto px-4">
+        {/* Header */}
+        <div className="mb-16 text-center">
+          <div className="inline-block mb-4">
+            <span className="text-sm font-semibold text-blue-600 tracking-wider">
+              METODOLOGIA
+            </span>
+          </div>
+          <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
+            Seu Projeto Pronto em Até Uma Semana
+          </h2>
+          <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+            Processo transparente e eficiente do briefing ao lançamento.
+          </p>
+        </div>
+
+        {/* Steps */}
+        <div className="grid md:grid-cols-4 gap-6 mb-12">
+          {steps.map((step, index) => (
+            <div
+              key={index}
+              ref={(el) => {
+                if (el) refs.current.set(index, el);
+              }}
+              data-index={index}
+              className={`group transition-all duration-700 transform ${
+                visibleItems.has(index)
+                  ? 'opacity-100 translate-y-0'
+                  : 'opacity-0 translate-y-8'
+              }`}
+              style={{
+                transitionDelay: `${index * 100}ms`
+              }}
+            >
+              {/* Card */}
+              <div className="relative">
+                {/* Connector Line */}
+                {index < steps.length - 1 && (
+                  <div className="hidden md:block absolute top-16 left-[60%] w-[calc(100%-60%)] h-0.5 bg-gradient-to-r from-blue-600 to-transparent" />
+                )}
+
+                {/* Card Content */}
+                <div className="bg-white border border-slate-200 rounded-lg p-6 hover:shadow-lg transition-shadow duration-300">
+                  {/* Number */}
+                  <div className="mb-4">
+                    <span className="inline-flex items-center justify-center w-12 h-12 bg-blue-600 text-white font-bold rounded-full text-lg">
+                      {step.number}
+                    </span>
+                  </div>
+
+                  {/* Icon */}
+                  <div className="mb-4 text-blue-600">
+                    {step.icon}
+                  </div>
+
+                  {/* Title */}
+                  <h3 className="text-lg font-bold text-slate-900 mb-2">
+                    {step.title}
+                  </h3>
+
+                  {/* Description */}
+                  <p className="text-slate-600 text-sm mb-4">
+                    {step.description}
+                  </p>
+
+                  {/* Details */}
+                  <ul className="space-y-2 mb-4">
+                    {step.details.map((detail, i) => (
+                      <li key={i} className="flex items-start gap-2 text-sm text-slate-600">
+                        <span className="w-1.5 h-1.5 bg-blue-600 rounded-full mt-1.5 flex-shrink-0" />
+                        {detail}
+                      </li>
+                    ))}
+                  </ul>
+
+                  {/* Duration */}
+                  <div className="pt-4 border-t border-slate-200">
+                    <p className="text-xs font-semibold text-slate-600">
+                      ⏱️ {step.duration}
+                    </p>
+                  </div>
+                </div>
               </div>
-              <h4 className="font-display text-xl font-semibold mb-3 text-gray-900">{step.title}</h4>
-              <p className="text-gray-600 text-sm leading-relaxed">{step.description}</p>
-            </Reveal>
+            </div>
           ))}
+        </div>
+
+        {/* Timeline Total */}
+        <div className="bg-blue-50 rounded-lg p-8 text-center">
+          <p className="text-slate-600 mb-2">Tempo total estimado</p>
+          <p className="text-4xl font-bold text-blue-600">~21 Dias</p>
+          <p className="text-slate-600 mt-2">Do briefing inicial ao lançamento completo</p>
         </div>
       </div>
     </section>
