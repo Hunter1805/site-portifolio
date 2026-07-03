@@ -13,7 +13,10 @@
 
 @layer base {
   body {
-    @apply font-sans text-gray-900 bg-white antialiased selection:bg-brand-sky selection:text-white scroll-smooth;
+    @apply font-sans text-gray-900 antialiased selection:bg-brand-sky selection:text-white scroll-smooth;
+    background-color: #f8fafc;
+    background-image: radial-gradient(circle, #cbd5e1 1px, transparent 1px);
+    background-size: 28px 28px;
   }
 }
 
@@ -31,4 +34,9 @@
   .hover-lift {
     @apply transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(15,23,42,0.08)];
   }
+}
+
+@keyframes heroFloat {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
 }

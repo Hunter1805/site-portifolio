@@ -8,7 +8,7 @@ import Sobre from './pages/Sobre';
 export default function App() {
   return (
     <Router>
-      <div className="min-h-screen bg-white">
+      <div className="min-h-screen">
         <Navbar />
         <main>
           <Routes>
