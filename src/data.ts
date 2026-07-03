@@ -6,7 +6,8 @@ export const portfolioData = [
     description: 'Digitalização de processos manuais para automação de pedidos e controle de estoque com interface simplificada.',
     metrics: [ { value: '-85%', label: 'Redução de Erros' }, { value: '+60%', label: 'Produtividade' } ],
     accent: 'bg-[#39b8fd]',
-    textAccent: 'text-[#39b8fd]'
+    textAccent: 'text-[#39b8fd]',
+    image: '/mockups/gestao-industrial.png'
   },
   {
     id: 2,
@@ -15,7 +16,8 @@ export const portfolioData = [
     description: 'Vitrine de produtos otimizada para dispositivos móveis com integração direta para o time de fechamento.',
     metrics: [ { value: '+40%', label: 'Conversão Vendas' }, { value: '100+', label: 'Leads Diários' } ],
     accent: 'bg-[#4edea3]',
-    textAccent: 'text-[#4edea3]'
+    textAccent: 'text-[#4edea3]',
+    image: '/mockups/vitrine-vendas.png'
   },
   {
     id: 3,
@@ -24,7 +26,8 @@ export const portfolioData = [
     description: 'Presença online robusta focada em autoridade de marca e geração de confiança para clientes B2B.',
     metrics: [ { value: '+60%', label: 'Visibilidade' }, { value: '+45%', label: 'Contatos' } ],
     accent: 'bg-black',
-    textAccent: 'text-black'
+    textAccent: 'text-black',
+    image: '/mockups/site-institucional.png'
   },
   {
     id: 4,
@@ -33,7 +36,8 @@ export const portfolioData = [
     description: 'Página de destino ultrarrápida projetada para tráfego pago, maximizando o ROI de cada clique.',
     metrics: [ { value: '8%', label: 'Taxa de Conversão' }, { value: '300%', label: 'Aumento ROI' } ],
     accent: 'bg-brand-sky',
-    textAccent: 'text-brand-sky'
+    textAccent: 'text-brand-sky',
+    image: '/mockups/landing-page.png'
   }
 ];
 
