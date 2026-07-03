@@ -148,11 +148,6 @@ export default function ExampleProjects() {
                     ))}
                   </div>
 
-                  {/* Price */}
-                  <div className="mb-6 p-3 bg-slate-50 rounded-lg">
-                    <p className="text-xs font-semibold text-slate-600 mb-1">PREÇO ESTIMADO</p>
-                    <p className="text-lg font-bold text-slate-900">{project.price}</p>
-                  </div>
 
                   {/* CTA */}
                   <button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg transition-colors duration-200 flex items-center justify-center gap-2 group/btn">

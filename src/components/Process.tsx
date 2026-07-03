@@ -174,9 +174,9 @@ export default function Process() {
 
         {/* Timeline Total */}
         <div className="bg-blue-50 rounded-lg p-8 text-center">
-          <p className="text-slate-600 mb-2">Tempo total estimado</p>
-          <p className="text-4xl font-bold text-blue-600">~21 Dias</p>
-          <p className="text-slate-600 mt-2">Do briefing inicial ao lançamento completo</p>
+          <p className="text-slate-600 mb-2">Do briefing inicial ao lançamento completo</p>
+          <p className="text-4xl font-bold text-blue-600">Agilidade & Qualidade</p>
+          <p className="text-slate-600 mt-2">Entrega rápida, sem abrir mão do resultado</p>
         </div>
       </div>
     </section>

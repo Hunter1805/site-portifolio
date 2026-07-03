@@ -64,7 +64,7 @@ export default function Sobre() {
           <div className="grid md:grid-cols-2 gap-6">
             {[
               'Especialistas em Funis Digital',
-              'Entrega Rápida (21 dias)',
+              'Entrega Ágil e Sem Enrolação',
               'Design Autêntico (não IA genérica)',
               'Suporte Dedicado'
             ].map((point, index) => (

@@ -6,7 +6,6 @@ import Services from '../components/Services';
 import Process from '../components/Process';
 import Cta from '../components/Cta';
 import ExampleProjects from '../components/ExampleProjects';
-import Testimonials from '../components/Testimonials';
 import FAQ from '../components/FAQ';
 import Contact from '../components/Contact';
 
@@ -21,7 +20,6 @@ export default function Home() {
       <Process />
       <Cta />
       <ExampleProjects />
-      <Testimonials />
       <FAQ />
       <Contact />
     </>
