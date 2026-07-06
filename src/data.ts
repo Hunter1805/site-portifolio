@@ -3,7 +3,7 @@ export const portfolioData = [
     id: 1,
     category: 'Indústria',
     title: 'Sistema de Gestão Industrial',
-    description: 'Digitalização de processos manuais para automação de pedidos e controle de estoque com interface simplificada.',
+    description: 'Plataforma ERP/BI corporativa que unifica gestão de fornos, logística, manutenção, custos e conformidade fiscal. Inclui dashboard em tempo real, relatórios PDF premium, exportação Excel, sincronização offline e segurança avançada com PIN Lock.',
     metrics: [ { value: '-85%', label: 'Redução de Erros' }, { value: '+60%', label: 'Produtividade' } ],
     accent: 'bg-[#39b8fd]',
     textAccent: 'text-[#39b8fd]',
