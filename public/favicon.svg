@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
+  <rect width="32" height="32" rx="8" fill="#111827"/>
+  <!-- Letra E branca estilizada -->
+  <path d="M10 9h10M10 16h7M10 23h10M10 9v14" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Seta azul de crescimento (marca registrada da Elevate) -->
+  <path d="M20 9h3v3M23 9l-6 6" stroke="#0ea5e9" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
