@@ -105,7 +105,7 @@ export default function Hero() {
                 style={{ transitionDelay: '160ms' }}
               >
                 Sites feitos para converter — não para ganhar prêmio de design.
-                Cada projeto começa com uma pergunta: qual é o próximo passo que você quer que o cliente dê?
+                Cada projeto é planejado com foco em um objetivo claro: guiar o visitante até o contato direto com a sua empresa.
               </p>
 
               {/* CTAs */}
