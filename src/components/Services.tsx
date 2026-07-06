@@ -34,7 +34,7 @@ const solutions = [
 
 export default function Services() {
   return (
-    <section className="py-32 px-6 bg-gray-50 border-t border-gray-100" id="servicos">
+    <section className="py-20 md:py-32 px-6 bg-gray-50 border-t border-gray-100" id="servicos">
       <div className="max-w-6xl mx-auto">
         <Reveal className="mb-16">
           <h2 className="font-display text-3xl md:text-4xl font-bold text-gray-900 tracking-tight">
@@ -42,11 +42,11 @@ export default function Services() {
           </h2>
         </Reveal>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-10 md:gap-y-16">
           {solutions.map((item) => {
             const Icon = item.icon;
             return (
-              <Reveal key={item.id} className="flex items-start gap-6">
+              <Reveal key={item.id} className="flex items-start gap-4 md:gap-6">
                 <div className="w-14 h-14 bg-gray-100 flex items-center justify-center rounded-md shrink-0 text-brand-sky">
                   <Icon className="w-6 h-6" />
                 </div>

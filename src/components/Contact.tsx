@@ -3,7 +3,7 @@ import { Phone, Mail } from 'lucide-react';
 
 export default function Contact() {
   return (
-    <section className="py-32 px-6 bg-gray-50 border-y border-gray-200" id="contato">
+    <section className="py-20 md:py-32 px-6 bg-gray-50 border-y border-gray-200" id="contato">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
           <Reveal className="md:col-span-5">
@@ -30,7 +30,7 @@ export default function Contact() {
           </Reveal>
           
           <Reveal className="md:col-span-7">
-            <form className="bg-white border border-gray-200 p-8 rounded-md shadow-sm space-y-6" onSubmit={(e) => e.preventDefault()}>
+            <form className="bg-white border border-gray-200 p-6 sm:p-8 rounded-md shadow-sm space-y-6" onSubmit={(e) => e.preventDefault()}>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label className="font-sans text-xs uppercase tracking-widest text-gray-500 font-medium">Nome</label>

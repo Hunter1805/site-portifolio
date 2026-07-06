@@ -21,7 +21,7 @@ export default function Comparison() {
   ];
 
   return (
-    <section className="py-32 px-6 bg-white" id="diferencial">
+    <section className="py-20 md:py-32 px-6 bg-white" id="diferencial">
       <div className="max-w-6xl mx-auto">
         <Reveal className="mb-20 text-center max-w-3xl mx-auto">
           <span className="font-sans text-xs font-bold text-brand-sky uppercase tracking-[0.2em] block mb-3">
@@ -37,7 +37,7 @@ export default function Comparison() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-stretch">
           {/* Card Esquerdo - Site Genérico */}
-          <Reveal className="flex flex-col bg-gray-50/50 border border-gray-200/80 rounded-2xl p-8 md:p-10 transition-all duration-300 hover:border-gray-300">
+          <Reveal className="flex flex-col bg-gray-50/50 border border-gray-200/80 rounded-2xl p-6 md:p-10 transition-all duration-300 hover:border-gray-300">
             <div className="mb-8">
               <span className="font-sans text-[10px] font-bold text-gray-400 uppercase tracking-widest block mb-1">
                 O ERRO COMUM
@@ -83,7 +83,7 @@ export default function Comparison() {
           </Reveal>
 
           {/* Card Direito - Site Elevete */}
-          <Reveal className="flex flex-col bg-white border-2 border-brand-sky/20 shadow-xl shadow-brand-sky/5 rounded-2xl p-8 md:p-10 relative overflow-hidden transition-all duration-300 hover:border-brand-sky/40">
+          <Reveal className="flex flex-col bg-white border-2 border-brand-sky/20 shadow-xl shadow-brand-sky/5 rounded-2xl p-6 md:p-10 relative overflow-hidden transition-all duration-300 hover:border-brand-sky/40">
             {/* Tag de destaque premium */}
             <div className="absolute top-0 right-0 bg-brand-sky text-white font-sans text-[9px] font-bold uppercase tracking-widest px-4 py-1.5 rounded-bl-lg shadow-sm">
               Padrão Elevete

@@ -3,7 +3,7 @@ import { portfolioData } from '../data';
 
 export default function Portfolio() {
   return (
-    <section className="py-32 px-6 bg-gray-50" id="projetos">
+    <section className="py-20 md:py-32 px-6 bg-gray-50" id="projetos">
       <div className="max-w-7xl mx-auto">
         <Reveal className="mb-16 flex flex-col md:flex-row md:items-end justify-between gap-8">
           <div>

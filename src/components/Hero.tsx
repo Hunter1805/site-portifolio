@@ -73,7 +73,7 @@ export default function Hero() {
         />
         <div className="absolute -top-40 -right-40 w-[560px] h-[560px] rounded-full bg-brand-sky/8 blur-3xl pointer-events-none" />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-6 w-full pt-32 pb-20">
+        <div className="relative z-10 max-w-7xl mx-auto px-6 w-full pt-24 pb-16 md:pt-36 md:pb-24">
           <div className="grid md:grid-cols-2 gap-14 lg:gap-20 items-center">
 
             {/* ── ESQUERDA: Texto ── */}
@@ -93,7 +93,7 @@ export default function Hero() {
               {/* Headline — sem quebras forçadas */}
               <h1
                 className={`${slide(100)} font-display font-bold text-gray-900 leading-[1.08] mb-6`}
-                style={{ fontSize: 'clamp(2.5rem, 5vw, 4.25rem)', transitionDelay: '80ms' }}
+                style={{ fontSize: 'clamp(2rem, 5vh, 4.25rem)', transitionDelay: '80ms' }}
               >
                 Transforme Seu Negócio em Uma{' '}
                 <em className="italic text-brand-sky">Máquina de Vendas Digital</em>
@@ -110,12 +110,12 @@ export default function Hero() {
 
               {/* CTAs */}
               <div
-                className={`${slide(0)} flex flex-wrap gap-4`}
+                className={`${slide(0)} flex flex-col sm:flex-row gap-4 w-full sm:w-auto`}
                 style={{ transitionDelay: '240ms' }}
               >
                 <a
                   href="#contato"
-                  className="inline-flex items-center gap-2.5 bg-slate-900 hover:bg-slate-800 text-white font-sans font-semibold text-sm px-7 py-4 rounded-lg transition-colors duration-200 shadow-lg shadow-slate-900/10"
+                  className="inline-flex items-center justify-center gap-2.5 bg-slate-900 hover:bg-slate-800 text-white font-sans font-semibold text-sm px-7 py-4 rounded-lg transition-colors duration-200 shadow-lg shadow-slate-900/10 w-full sm:w-auto"
                 >
                   Solicitar Orçamento
                   <TrendingUp className="w-4 h-4" />
@@ -124,7 +124,7 @@ export default function Hero() {
                   href="https://wa.me/55"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2.5 bg-white border border-gray-200 hover:border-gray-400 text-gray-700 font-sans font-semibold text-sm px-7 py-4 rounded-lg transition-colors duration-200"
+                  className="inline-flex items-center justify-center gap-2.5 bg-white border border-gray-200 hover:border-gray-400 text-gray-700 font-sans font-semibold text-sm px-7 py-4 rounded-lg transition-colors duration-200 w-full sm:w-auto"
                 >
                   Falar pelo WhatsApp
                 </a>
