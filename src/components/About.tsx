@@ -67,7 +67,7 @@ export default function About() {
             Focado em resultados que cabem no seu bolso e tempo.
           </h2>
           <p className="font-sans text-lg text-gray-600 mb-8 leading-relaxed">
-            Na Elevete, não construímos apenas sites bonitos. Construímos ativos digitais que funcionam como sua melhor força de vendas. Minha metodologia foca na simplicidade do usuário final: um clique e ele está falando com você.
+            Faço sites para negócios que precisam de resultado. Cada projeto começa com uma pergunta simples: qual é o próximo passo que você quer que o cliente dê? Tudo — o layout, o copy, os botões — é construído para responder isso.
           </p>
           <div className="grid grid-cols-2 gap-4 mb-8">
             {['Tailwind CSS Expert', 'Foco em Conversão', 'Performance Mobile', 'UI/UX Minimalista'].map((item, i) => (
