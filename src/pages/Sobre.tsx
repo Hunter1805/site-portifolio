@@ -19,7 +19,7 @@ import { Link } from 'react-router-dom';
 /* ─── dados ──────────────────────────────────────────────── */
 const stats = [
   { icon: Award, value: '50+', label: 'Projetos Entregues' },
-  { icon: Users, value: '100+', label: 'Clientes Satisfeitos' },
+  { icon: Users, value: '24/7', label: 'Suporte Disponível' },
   { icon: TrendingUp, value: '+40%', label: 'Aumento Médio em Vendas' },
   { icon: Star, value: '98%', label: 'Taxa de Satisfação' },
 ];
@@ -43,7 +43,7 @@ const mvv = [
 ];
 
 const diferenciais = [
-  { icon: Zap, title: 'Entrega Ágil', text: 'Projetos prontos em até 7 dias, sem enrolação.' },
+  { icon: Zap, title: 'Entrega Ágil', text: 'Projetos prontos em até 15 dias, sem enrolação.' },
   { icon: Palette, title: 'Design Autêntico', text: 'Cada layout é criado do zero, sem templates genéricos.' },
   { icon: Code, title: 'Código de Qualidade', text: 'React, TypeScript e as melhores práticas de performance.' },
   { icon: TrendingUp, title: 'Foco em Conversão', text: 'Cada detalhe é pensado para transformar visitantes em clientes.' },
@@ -122,7 +122,7 @@ export default function Sobre() {
                 </div>
                 <div>
                   <p className="font-display text-sm font-bold text-gray-900">Entrega Garantida</p>
-                  <p className="font-sans text-xs text-gray-400">Em até 7 dias úteis</p>
+                  <p className="font-sans text-xs text-gray-400">Em até 15 dias úteis</p>
                 </div>
               </motion.div>
             </div>
