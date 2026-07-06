@@ -94,7 +94,7 @@ export default function Process() {
             </span>
           </div>
           <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
-            Seu Projeto Pronto em Até Uma Semana
+            Seu Projeto Pronto em Até 15 Dias
           </h2>
           <p className="text-lg text-slate-600 max-w-2xl mx-auto">
             Processo transparente e eficiente do briefing ao lançamento.
