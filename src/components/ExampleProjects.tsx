@@ -65,7 +65,7 @@ export default function ExampleProjects() {
         {/* Header */}
         <div className="mb-16">
           <div className="inline-block mb-4">
-            <span className="text-sm font-semibold text-blue-600 tracking-wider">
+            <span className="text-sm font-semibold text-brand-sky tracking-wider">
               EXEMPLOS DE PROJETOS POSSÍVEIS
             </span>
           </div>
@@ -73,8 +73,7 @@ export default function ExampleProjects() {
             Nichos Rentáveis Que Podemos Criar
           </h2>
           <p className="text-lg text-slate-600 max-w-2xl">
-            Esses são exemplos de projetos que você pode encomendar. Não fizemos ainda, 
-            mas sabemos exatamente como criar para cada nicho.
+            Projetos conceituais desenvolvidos sob medida para demonstrar o potencial de conversão e design que aplicamos em cada nicho.
           </p>
         </div>
 
@@ -112,7 +111,7 @@ export default function ExampleProjects() {
                 <div className="p-6">
                   {/* Category */}
                   <div className="mb-3">
-                    <span className="inline-block text-xs font-semibold text-blue-600 bg-blue-50 px-3 py-1 rounded-full">
+                    <span className="inline-block text-xs font-semibold text-brand-sky bg-sky-50 px-3 py-1 rounded-full">
                       {project.category}
                     </span>
                   </div>
@@ -142,7 +141,7 @@ export default function ExampleProjects() {
                   <div className="mb-6 space-y-2">
                     {project.results.map((result, i) => (
                       <div key={i} className="flex items-start gap-2">
-                        <TrendingUp className="w-4 h-4 text-blue-600 mt-0.5 flex-shrink-0" />
+                        <TrendingUp className="w-4 h-4 text-brand-sky mt-0.5 flex-shrink-0" />
                         <span className="text-sm text-slate-600">{result}</span>
                       </div>
                     ))}
@@ -150,7 +149,7 @@ export default function ExampleProjects() {
 
 
                   {/* CTA */}
-                  <button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg transition-colors duration-200 flex items-center justify-center gap-2 group/btn">
+                  <button className="w-full bg-brand-sky hover:bg-sky-600 text-white font-semibold py-3 rounded-lg transition-colors duration-200 flex items-center justify-center gap-2 group/btn">
                     Solicitar Orçamento
                     <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
                   </button>
@@ -171,7 +170,7 @@ export default function ExampleProjects() {
           </p>
           <a
             href="#contato"
-            className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-3 rounded-lg transition-colors duration-200"
+            className="inline-flex items-center gap-2 bg-brand-sky hover:bg-sky-600 text-white font-semibold px-8 py-3 rounded-lg transition-colors duration-200"
           >
             Falar com Especialista
             <ArrowRight className="w-4 h-4" />
