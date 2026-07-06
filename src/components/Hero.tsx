@@ -1,214 +1,211 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { ArrowRight, TrendingUp, MessageSquare, Check, ArrowUpRight } from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
+import { ArrowRight, TrendingUp, Users, Zap, MessageSquare } from 'lucide-react';
+
+/* ─── animação helper ─────────────────────────────────── */
+const cls = (base: string, visible: boolean, from: string) =>
+  `${base} transition-all duration-700 ${visible ? 'opacity-100 translate-y-0' : `opacity-0 ${from}`}`;
 
 export default function Hero() {
-  const [isVisible, setIsVisible] = useState(false);
+  const [visible, setVisible] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.1 }
+    const obs = new IntersectionObserver(
+      ([e]) => { if (e.isIntersecting) setVisible(true); },
+      { threshold: 0.05 }
     );
-
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
-
-    return () => observer.disconnect();
+    if (ref.current) obs.observe(ref.current);
+    return () => obs.disconnect();
   }, []);
 
   return (
-    <section ref={ref} className="min-h-screen bg-white flex items-center py-20 overflow-hidden">
-      <div className="container max-w-7xl mx-auto px-4">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          
-          {/* LEFT SIDE - TEXT CONTENT */}
-          <div className={`transition-all duration-700 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}>
-            {/* Tagline */}
-            <div className="inline-block mb-6">
-              <span className="text-sm font-semibold text-brand-sky tracking-widest uppercase">
-                Desenvolvimento Web Estratégico
-              </span>
+    <section
+      ref={ref}
+      className="relative min-h-screen flex flex-col items-center justify-center px-4 pt-32 pb-20 overflow-hidden"
+    >
+      {/* ── Background ── */}
+      {/* Gradient de cima pra baixo: branco → azul-50 → branco */}
+      <div className="absolute inset-0 bg-gradient-to-b from-white via-sky-50/60 to-white pointer-events-none" />
+      {/* Padrão de pontos suave sobre o gradiente */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage: 'radial-gradient(circle, #bfdbfe 1px, transparent 1px)',
+          backgroundSize: '32px 32px',
+          opacity: 0.45,
+        }}
+      />
+
+      {/* ── Conteúdo ── */}
+      <div className="relative z-10 w-full max-w-4xl mx-auto flex flex-col items-center text-center">
+
+        {/* Badge tagline */}
+        <div
+          className={cls(
+            'flex items-center gap-2 bg-white/80 border border-sky-100 px-4 py-2 rounded-full shadow-sm mb-8 backdrop-blur-sm',
+            visible, '-translate-y-4'
+          )}
+          style={{ transitionDelay: '0ms' }}
+        >
+          <span className="w-2 h-2 rounded-full bg-brand-sky animate-pulse flex-shrink-0" />
+          <span className="font-sans text-xs font-bold tracking-[0.18em] uppercase text-gray-500">
+            Desenvolvimento Web Estratégico
+          </span>
+        </div>
+
+        {/* Headline */}
+        <h1
+          className={cls(
+            'font-display text-5xl md:text-6xl lg:text-[76px] font-bold text-gray-900 leading-[1.1] mb-6',
+            visible, '-translate-y-4'
+          )}
+          style={{ transitionDelay: '100ms' }}
+        >
+          Transforme Seu Negócio em Uma{' '}
+          <em className="italic text-brand-sky">Máquina de Vendas Digital</em>
+        </h1>
+
+        {/* Subheadline */}
+        <p
+          className={cls(
+            'font-sans text-lg text-gray-500 max-w-2xl leading-relaxed mb-10',
+            visible, '-translate-y-4'
+          )}
+          style={{ transitionDelay: '200ms' }}
+        >
+          Criamos ativos digitais estratégicos que funcionam como canais de receita.
+          Cada projeto é customizado, entregue em até 15 dias e pronto para gerar resultados reais.
+        </p>
+
+        {/* CTA Buttons */}
+        <div
+          className={cls(
+            'flex flex-col sm:flex-row items-center gap-4 mb-20',
+            visible, '-translate-y-4'
+          )}
+          style={{ transitionDelay: '300ms' }}
+        >
+          <a
+            href="#contato"
+            className="inline-flex items-center gap-2.5 bg-gray-900 text-white font-sans font-semibold text-sm tracking-widest uppercase px-8 py-4 rounded-full hover:bg-gray-800 transition-all duration-200 hover:scale-105 active:scale-95 shadow-lg shadow-gray-900/10"
+          >
+            Solicitar Orçamento
+            <ArrowRight className="w-4 h-4" />
+          </a>
+          <a
+            href="https://wa.me/55"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2.5 bg-white/80 border border-gray-200 text-gray-700 font-sans font-semibold text-sm tracking-widest uppercase px-8 py-4 rounded-full hover:border-gray-400 hover:bg-white transition-all duration-200 backdrop-blur-sm"
+          >
+            WhatsApp
+            <MessageSquare className="w-4 h-4" />
+          </a>
+        </div>
+
+        {/* Stats Panel + Floating card */}
+        <div
+          className={cls('relative w-full', visible, 'translate-y-6')}
+          style={{ transitionDelay: '450ms' }}
+        >
+          {/* Floating Revenue Card */}
+          <div
+            className="absolute -top-5 right-0 md:-right-4 z-20 bg-white border border-gray-100 rounded-2xl px-4 py-3 shadow-xl flex items-center gap-3"
+            style={{ animation: 'heroFloat 4s ease-in-out infinite' }}
+          >
+            <div className="w-9 h-9 rounded-full bg-brand-sky flex items-center justify-center flex-shrink-0">
+              <TrendingUp className="w-4.5 h-4.5 text-white" />
             </div>
-
-            {/* Main Headline */}
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-slate-900 mb-6 leading-tight">
-              Transforme Seu Negócio em Uma{' '}
-              <span className="text-brand-sky">Máquina de Vendas Digital</span>
-            </h1>
-
-            {/* Subheadline */}
-            <p className="text-lg text-slate-600 mb-8 max-w-xl leading-relaxed">
-              Criamos ativos digitais estratégicos que funcionam como canais de receita. 
-              Cada projeto é customizado, entregue em até 15 dias e pronto para gerar resultados.
-            </p>
-
-            {/* Stats Row */}
-            <div className="flex gap-8 mb-12 flex-wrap">
-              <div>
-                <p className="text-3xl md:text-4xl font-bold text-brand-sky">+300%</p>
-                <p className="text-sm text-slate-600">Aumento de ROI</p>
-              </div>
-              <div>
-                <p className="text-3xl md:text-4xl font-bold text-brand-sky">100+</p>
-                <p className="text-sm text-slate-600">Leads / Dia</p>
-              </div>
-              <div>
-                <p className="text-3xl md:text-4xl font-bold text-brand-sky">8%</p>
-                <p className="text-sm text-slate-600">Conversão</p>
-              </div>
-            </div>
-
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4">
-              <a
-                href="#projetos"
-                className="inline-flex items-center justify-center gap-2 bg-brand-sky hover:bg-sky-600 text-white font-semibold px-8 py-4 rounded-lg transition-all duration-200 transform hover:scale-105 active:scale-95"
-              >
-                Solicitar Orçamento
-                <ArrowRight className="w-4 h-4" />
-              </a>
-              <a
-                href="#contato"
-                className="inline-flex items-center justify-center gap-2 border-2 border-slate-900 hover:bg-slate-900 hover:text-white text-slate-900 font-semibold px-8 py-4 rounded-lg transition-all duration-200"
-              >
-                Falar pelo WhatsApp
-              </a>
+            <div className="text-left">
+              <p className="text-[9px] font-bold text-gray-400 uppercase tracking-widest leading-none mb-0.5">
+                Real-Time Growth
+              </p>
+              <p className="text-sm font-bold text-gray-900">Receita +R$ 12,4k</p>
             </div>
           </div>
 
-          {/* RIGHT SIDE - INTERACTIVE DASHBOARD MOCKUP */}
-          <div className={`relative w-full aspect-square md:aspect-auto md:h-[550px] flex items-center justify-center transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'}`}>
-            
-            {/* Ambient Background Glows */}
-            <div className="absolute top-1/4 -right-10 w-72 h-72 bg-brand-sky/20 rounded-full blur-3xl animate-pulse pointer-events-none"></div>
-            <div className="absolute bottom-1/4 -left-10 w-72 h-72 bg-indigo-500/10 rounded-full blur-3xl animate-pulse pointer-events-none" style={{ animationDelay: '2s' }}></div>
+          {/* Stats White Card */}
+          <div className="bg-white/90 border border-gray-100/80 rounded-2xl shadow-[0_20px_60px_rgba(15,23,42,0.07)] backdrop-blur-md overflow-hidden">
 
-            {/* Core Interactive Panel (Glassmorphism) */}
-            <div className="relative w-full max-w-[440px] bg-slate-900/95 border border-slate-800 rounded-3xl p-6 shadow-[0_30px_60px_rgba(15,23,42,0.35)] backdrop-blur-xl overflow-hidden z-10">
+            {/* Top thin line decoration */}
+            <div className="h-1 w-full bg-gradient-to-r from-transparent via-brand-sky/40 to-transparent" />
+
+            <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-gray-100/80 p-2">
               
-              {/* Top window controls */}
-              <div className="flex items-center justify-between mb-6 pb-4 border-b border-slate-800">
-                <div className="flex gap-1.5">
-                  <span className="w-3 h-3 rounded-full bg-rose-500/80"></span>
-                  <span className="w-3 h-3 rounded-full bg-amber-500/80"></span>
-                  <span className="w-3 h-3 rounded-full bg-emerald-500/80"></span>
+              {/* Stat 1 */}
+              <div className="flex flex-col gap-3 px-8 py-7 relative">
+                <div className="w-10 h-10 rounded-full bg-brand-sky/10 flex items-center justify-center">
+                  <TrendingUp className="w-5 h-5 text-brand-sky" />
                 </div>
-                <div className="text-[11px] font-medium text-slate-400 bg-slate-800/50 px-3 py-1 rounded-full border border-slate-700/50 flex items-center gap-1.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping"></span>
-                  elevete.com.br/dashboard
-                </div>
-                <div className="w-6"></div>
-              </div>
-
-              {/* Main dashboard stats header */}
-              <div className="flex justify-between items-start mb-6">
                 <div>
-                  <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Faturamento do Mês</p>
-                  <h3 className="text-2xl font-bold text-white mt-1">R$ 48.290,00</h3>
+                  <div className="flex items-baseline gap-2">
+                    <span className="font-display text-4xl font-bold text-gray-900">+300%</span>
+                    <span className="font-sans text-xs font-bold text-brand-sky tracking-widest">ROI</span>
+                  </div>
+                  <p className="font-sans text-[10px] font-bold text-gray-400 uppercase tracking-[0.15em] mt-2 mb-1">
+                    Desempenho Anual
+                  </p>
+                  <p className="font-sans text-xs text-gray-400 leading-relaxed">
+                    Retorno sobre investimento otimizado através de funis proprietários.
+                  </p>
                 </div>
-                <span className="bg-emerald-500/10 text-emerald-400 text-xs font-bold px-2.5 py-1 rounded-full flex items-center gap-1">
-                  <TrendingUp className="w-3.5 h-3.5" /> +24%
-                </span>
-              </div>
-
-              {/* Animated Chart SVG */}
-              <div className="w-full h-36 mb-6 relative">
-                <svg viewBox="0 0 300 100" className="w-full h-full overflow-visible">
-                  <defs>
-                    <linearGradient id="chart-glow" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stopColor="#0EA5E9" stopOpacity="0.4"/>
-                      <stop offset="100%" stopColor="#0EA5E9" stopOpacity="0"/>
-                    </linearGradient>
-                  </defs>
-                  
-                  {/* Grid Lines */}
-                  <line x1="0" y1="20" x2="300" y2="20" stroke="#1e293b" strokeDasharray="3,3" />
-                  <line x1="0" y1="60" x2="300" y2="60" stroke="#1e293b" strokeDasharray="3,3" />
-                  
-                  {/* Fill Area */}
-                  <path 
-                    d="M0,80 Q40,85 80,60 T160,50 T240,25 T300,15 L300,100 L0,100 Z" 
-                    fill="url(#chart-glow)" 
-                  />
-                  
-                  {/* Stroke Line */}
-                  <path 
-                    d="M0,80 Q40,85 80,60 T160,50 T240,25 T300,15" 
-                    fill="none" 
-                    stroke="#0EA5E9" 
-                    strokeWidth="3.5" 
-                    strokeLinecap="round" 
-                  />
-                  
-                  {/* Interactive Dot */}
-                  <circle cx="300" cy="15" r="4.5" fill="#0EA5E9" />
-                  <circle cx="300" cy="15" r="9" fill="#0EA5E9" className="animate-ping" opacity="0.4" />
+                {/* Mini chart line */}
+                <svg viewBox="0 0 120 24" className="w-full h-5 mt-1 opacity-30">
+                  <polyline points="0,20 20,18 40,14 60,10 80,6 100,4 120,1"
+                    fill="none" stroke="#0EA5E9" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </div>
 
-              {/* Recent Activity Mini List */}
-              <div className="space-y-3">
-                <p className="text-[11px] font-bold text-slate-500 uppercase tracking-widest">Atividade recente</p>
-                <div className="flex items-center justify-between p-3 rounded-xl bg-slate-800/40 border border-slate-800/50">
-                  <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 rounded-lg bg-emerald-500/10 flex items-center justify-center text-emerald-400">
-                      <Check className="w-4 h-4" />
-                    </div>
-                    <div>
-                      <p className="text-xs font-semibold text-white">Lead Convertido</p>
-                      <p className="text-[10px] text-slate-400">Thiago S. via Landing Page</p>
-                    </div>
-                  </div>
-                  <span className="text-xs font-bold text-emerald-400">+R$ 3.500</span>
+              {/* Stat 2 */}
+              <div className="flex flex-col gap-3 px-8 py-7 relative">
+                <div className="w-10 h-10 rounded-full bg-brand-sky/10 flex items-center justify-center">
+                  <Users className="w-5 h-5 text-brand-sky" />
                 </div>
+                <div>
+                  <div className="flex items-baseline gap-2">
+                    <span className="font-display text-4xl font-bold text-gray-900">100+</span>
+                    <span className="font-sans text-xs font-bold text-brand-sky tracking-widest">LEADS/DIA</span>
+                  </div>
+                  <p className="font-sans text-[10px] font-bold text-gray-400 uppercase tracking-[0.15em] mt-2 mb-1">
+                    Volume de Aquisição
+                  </p>
+                  <p className="font-sans text-xs text-gray-400 leading-relaxed">
+                    Escalabilidade horizontal para negócios em fase de crescimento.
+                  </p>
+                </div>
+                <svg viewBox="0 0 120 24" className="w-full h-5 mt-1 opacity-30">
+                  <polyline points="0,22 20,19 40,17 60,13 80,8 100,5 120,2"
+                    fill="none" stroke="#0EA5E9" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </div>
+
+              {/* Stat 3 */}
+              <div className="flex flex-col gap-3 px-8 py-7 relative">
+                <div className="w-10 h-10 rounded-full bg-brand-sky/10 flex items-center justify-center">
+                  <Zap className="w-5 h-5 text-brand-sky" />
+                </div>
+                <div>
+                  <div className="flex items-baseline gap-2">
+                    <span className="font-display text-4xl font-bold text-gray-900">8.2%</span>
+                    <span className="font-sans text-xs font-bold text-brand-sky tracking-widest">BENCHMARK</span>
+                  </div>
+                  <p className="font-sans text-[10px] font-bold text-gray-400 uppercase tracking-[0.15em] mt-2 mb-1">
+                    Taxa de Eficiência
+                  </p>
+                  <p className="font-sans text-xs text-gray-400 leading-relaxed">
+                    Conversão média 3x superior à média do mercado nacional.
+                  </p>
+                </div>
+                <svg viewBox="0 0 120 24" className="w-full h-5 mt-1 opacity-30">
+                  <polyline points="0,18 20,16 40,15 60,11 80,9 100,6 120,3"
+                    fill="none" stroke="#0EA5E9" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
               </div>
 
             </div>
-
-            {/* Floating Widget 1: Lead Notification card (Overlaps top left) */}
-            <div 
-              className="absolute -top-4 -left-2 md:-left-6 bg-white border border-slate-100 rounded-2xl p-4 shadow-[0_15px_30px_rgba(0,0,0,0.06)] flex items-center gap-3.5 max-w-[220px] z-20"
-              style={{ animation: 'heroFloat 4s ease-in-out infinite' }}
-            >
-              <div className="w-10 h-10 rounded-xl bg-emerald-50 flex items-center justify-center text-emerald-500 flex-shrink-0 border border-emerald-100">
-                <MessageSquare className="w-5 h-5" />
-              </div>
-              <div>
-                <p className="text-[10px] font-bold text-emerald-500 uppercase tracking-wide">Novo Lead!</p>
-                <p className="text-xs font-bold text-slate-800 mt-0.5">Thiago Silveira</p>
-                <p className="text-[10px] text-slate-500 flex items-center gap-1 mt-0.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 inline-block animate-pulse"></span>
-                  Vindo do WhatsApp
-                </p>
-              </div>
-            </div>
-
-            {/* Floating Widget 2: Conversion Badge (Overlaps bottom right) */}
-            <div 
-              className="absolute -bottom-4 -right-2 md:-right-6 bg-white border border-slate-100 rounded-2xl p-4 shadow-[0_15px_30px_rgba(0,0,0,0.06)] flex flex-col gap-1.5 min-w-[150px] z-20"
-              style={{ animation: 'heroFloat 4s ease-in-out infinite', animationDelay: '1.5s' }}
-            >
-              <div className="flex items-center justify-between">
-                <span className="text-[10px] font-bold text-slate-400 uppercase">Conversão</span>
-                <span className="text-[10px] font-bold text-emerald-500 flex items-center gap-0.5">
-                  <ArrowUpRight className="w-3 h-3" /> 8.2%
-                </span>
-              </div>
-              <div className="h-2 w-full bg-slate-100 rounded-full overflow-hidden">
-                <div className="h-full bg-brand-sky rounded-full w-[82%]"></div>
-              </div>
-              <p className="text-[9px] text-slate-400">Meta superada em 2%</p>
-            </div>
-
           </div>
-
         </div>
+
       </div>
     </section>
   );
