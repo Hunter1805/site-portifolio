@@ -92,8 +92,8 @@ export default function Hero() {
 
               {/* Headline — sem quebras forçadas */}
               <h1
-                className={`${slide(100)} font-display font-bold text-gray-900 leading-[1.08] mb-6`}
-                style={{ fontSize: 'clamp(2rem, 5vh, 4.25rem)', transitionDelay: '80ms' }}
+                className={`${slide(100)} font-display font-bold text-gray-900 leading-[1.08] mb-6 text-[2.125rem] sm:text-[3.25rem] md:text-[3.75rem] lg:text-[4.25rem]`}
+                style={{ transitionDelay: '80ms' }}
               >
                 Transforme Seu Negócio em Uma{' '}
                 <em className="italic text-brand-sky">Máquina de Vendas Digital</em>
@@ -101,7 +101,7 @@ export default function Hero() {
 
               {/* Subheadline */}
               <p
-                className={`${slide(0)} font-sans text-base text-gray-500 max-w-md leading-relaxed mb-10`}
+                className={`${slide(0)} font-sans text-sm sm:text-base text-gray-500 max-w-md leading-relaxed mb-10`}
                 style={{ transitionDelay: '160ms' }}
               >
                 Sites feitos para converter — não para ganhar prêmio de design.

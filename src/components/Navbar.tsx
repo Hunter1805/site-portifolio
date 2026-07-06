@@ -70,18 +70,41 @@ export default function Navbar() {
         </div>
       </div>
 
+      {/* Overlay do Menu Mobile com Blur */}
+      <div 
+        className={`fixed inset-0 top-20 bg-slate-900/10 backdrop-blur-xs md:hidden z-30 transition-all duration-300 ${
+          isOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'
+        }`}
+        onClick={() => setIsOpen(false)}
+      />
+
       {/* Menu Dropdown Mobile */}
       <div 
-        className={`absolute top-20 left-0 w-full bg-white border-b border-gray-100 shadow-lg md:hidden flex flex-col px-6 py-6 gap-4 z-40 transition-all duration-300 origin-top ${
+        className={`absolute top-20 left-0 w-full bg-white border-b border-gray-100 shadow-xl md:hidden flex flex-col px-6 py-8 gap-4 z-40 transition-all duration-300 origin-top ${
           isOpen ? 'opacity-100 scale-y-100 visible' : 'opacity-0 scale-y-95 invisible pointer-events-none'
         }`}
       >
-        <Link className="font-sans text-base font-semibold text-gray-700 hover:text-gray-900 py-2 border-b border-gray-50" to="/">Home</Link>
-        <Link className="font-sans text-base font-semibold text-gray-700 hover:text-gray-900 py-2 border-b border-gray-50" to="/#projetos">Projetos</Link>
-        <Link className="font-sans text-base font-semibold text-gray-700 hover:text-gray-900 py-2 border-b border-gray-50" to="/sobre">Sobre</Link>
-        <Link className="font-sans text-base font-semibold text-gray-700 hover:text-gray-900 py-2 border-b border-gray-50" to="/#servicos">Serviços</Link>
-        <Link className="font-sans text-base font-semibold text-gray-700 hover:text-gray-900 py-2 border-b border-gray-50" to="/#contato">Contato</Link>
-        <Link className="bg-gray-900 text-white text-center py-3 rounded-md font-sans text-sm font-medium hover:bg-gray-800 transition-colors mt-2" to="/#contato">
+        <Link className="font-sans text-base font-semibold text-gray-700 hover:text-gray-900 py-2.5 border-b border-gray-50 flex items-center justify-between" to="/">
+          <span>Home</span>
+          <span className="text-gray-400 text-xs font-normal">→</span>
+        </Link>
+        <Link className="font-sans text-base font-semibold text-gray-700 hover:text-gray-900 py-2.5 border-b border-gray-50 flex items-center justify-between" to="/#projetos">
+          <span>Projetos</span>
+          <span className="text-gray-400 text-xs font-normal">→</span>
+        </Link>
+        <Link className="font-sans text-base font-semibold text-gray-700 hover:text-gray-900 py-2.5 border-b border-gray-50 flex items-center justify-between" to="/sobre">
+          <span>Sobre</span>
+          <span className="text-gray-400 text-xs font-normal">→</span>
+        </Link>
+        <Link className="font-sans text-base font-semibold text-gray-700 hover:text-gray-900 py-2.5 border-b border-gray-50 flex items-center justify-between" to="/#servicos">
+          <span>Serviços</span>
+          <span className="text-gray-400 text-xs font-normal">→</span>
+        </Link>
+        <Link className="font-sans text-base font-semibold text-gray-700 hover:text-gray-900 py-2.5 border-b border-gray-50 flex items-center justify-between" to="/#contato">
+          <span>Contato</span>
+          <span className="text-gray-400 text-xs font-normal">→</span>
+        </Link>
+        <Link className="bg-brand-sky text-white text-center py-3.5 rounded-md font-sans text-sm font-semibold hover:bg-sky-500 shadow-md shadow-sky-500/10 transition-colors mt-4" to="/#contato">
           Vamos Conversar
         </Link>
       </div>
