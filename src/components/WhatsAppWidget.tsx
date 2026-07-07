@@ -4,7 +4,7 @@ import { MessageCircle, X } from 'lucide-react';
 export default function WhatsAppWidget() {
   const [isOpen, setIsOpen] = useState(false);
 
-  const whatsappNumber = '5511999999999'; // Substituir pelo seu número
+  const whatsappNumber = '5538999908770'; // Substituir pelo seu número
   const whatsappMessage = 'Olá! Gostaria de saber mais sobre os serviços da Elevete.';
 
   return (

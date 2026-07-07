@@ -23,7 +23,7 @@ export default function Footer() {
         <div className="flex flex-col gap-4">
           <span className="font-sans text-sm text-gray-900 font-bold mb-1">Contato</span>
           <a className="text-gray-500 text-sm hover:text-brand-sky transition-colors font-medium" href="#contato">Falar conosco</a>
-          <a className="text-gray-500 text-sm hover:text-brand-sky transition-colors font-medium" href="#whatsapp">WhatsApp</a>
+          <a className="text-gray-500 text-sm hover:text-brand-sky transition-colors font-medium" href="https://wa.me/5538999908770" target="_blank" rel="noopener noreferrer">WhatsApp</a>
         </div>
         
         <div className="flex flex-col gap-4 col-span-2 sm:col-span-1">

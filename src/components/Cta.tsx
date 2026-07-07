@@ -26,7 +26,7 @@ export default function Cta() {
         <Reveal className="delay-200">
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <a
-              href="https://wa.me/5511999999999"
+              href="https://wa.me/5538999908770"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-center gap-3 bg-brand-sky text-white px-8 py-4 rounded-md font-sans text-sm font-semibold hover:bg-sky-500 transition-colors w-full sm:w-auto shadow-lg shadow-sky-500/10 cursor-pointer"

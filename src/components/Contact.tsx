@@ -14,17 +14,17 @@ export default function Contact() {
               Preencha o formulário ou entre em contato direto pelo WhatsApp. Respondemos em até 24h úteis.
             </p>
             <div className="flex flex-col gap-6">
-              <a className="flex items-center gap-4 group" href="#whatsapp">
+              <a className="flex items-center gap-4 group" href="https://wa.me/5538999908770" target="_blank" rel="noopener noreferrer">
                 <div className="w-12 h-12 bg-brand-sky/10 flex items-center justify-center rounded-md group-hover:bg-brand-sky transition-colors text-brand-sky group-hover:text-white">
                   <Phone className="w-5 h-5" />
                 </div>
-                <span className="font-sans text-sm font-medium text-gray-900">(11) 99999-9999</span>
+                <span className="font-sans text-sm font-medium text-gray-900">(38) 99990-8770</span>
               </a>
-              <a className="flex items-center gap-4 group" href="mailto:contato@elevete.com.br">
+              <a className="flex items-center gap-4 group" href="mailto:elevategerenciamento@gmail.com">
                 <div className="w-12 h-12 bg-brand-sky/10 flex items-center justify-center rounded-md group-hover:bg-brand-sky transition-colors text-brand-sky group-hover:text-white">
                   <Mail className="w-5 h-5" />
                 </div>
-                <span className="font-sans text-sm font-medium text-gray-900">contato@elevete.com.br</span>
+                <span className="font-sans text-sm font-medium text-gray-900">elevategerenciamento@gmail.com</span>
               </a>
             </div>
           </Reveal>

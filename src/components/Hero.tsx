@@ -126,7 +126,7 @@ export default function Hero() {
                   <TrendingUp className="w-4 h-4" />
                 </a>
                 <a
-                  href="https://wa.me/55"
+                  href="https://wa.me/5538999908770"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2.5 bg-white border border-gray-200 hover:border-gray-400 text-gray-700 font-sans font-semibold text-sm px-7 py-4 rounded-lg transition-colors duration-200 w-full sm:w-auto"
