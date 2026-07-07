@@ -84,7 +84,7 @@ export default function Process() {
   }, []);
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 bg-white" id="metodologia">
       <div className="container max-w-7xl mx-auto px-4">
         {/* Header */}
         <div className="mb-16 text-center">
@@ -102,7 +102,7 @@ export default function Process() {
         </div>
 
         {/* Steps */}
-        <div className="grid md:grid-cols-4 gap-6 mb-12">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-12">
           {steps.map((step, index) => (
             <div
               key={index}
@@ -173,10 +173,22 @@ export default function Process() {
         </div>
 
         {/* Timeline Total */}
-        <div className="bg-blue-50 rounded-lg p-8 text-center">
-          <p className="text-slate-600 mb-2">Do briefing inicial ao lançamento completo</p>
-          <p className="text-4xl font-bold text-blue-600">Agilidade & Qualidade</p>
-          <p className="text-slate-600 mt-2">Entrega rápida, sem abrir mão do resultado</p>
+        <div className="bg-blue-50 rounded-2xl p-6 md:p-8">
+          <p className="text-slate-500 text-sm text-center mb-4 tracking-wide uppercase font-semibold">Do briefing inicial ao lançamento completo</p>
+          <div className="flex items-center justify-center gap-4 md:gap-8">
+            <div className="text-center">
+              <p className="text-2xl md:text-4xl font-bold text-blue-600 leading-none">Agilidade</p>
+              <p className="text-xs text-slate-500 mt-1 font-medium">Entrega Rápida</p>
+            </div>
+            <div className="flex flex-col items-center gap-1">
+              <span className="text-2xl md:text-3xl font-bold text-blue-300">&amp;</span>
+            </div>
+            <div className="text-center">
+              <p className="text-2xl md:text-4xl font-bold text-blue-600 leading-none">Qualidade</p>
+              <p className="text-xs text-slate-500 mt-1 font-medium">Sem Atalhos</p>
+            </div>
+          </div>
+          <p className="text-slate-500 text-sm text-center mt-4">Entrega rápida, sem abrir mão do resultado</p>
         </div>
       </div>
     </section>

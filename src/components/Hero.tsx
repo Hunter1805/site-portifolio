@@ -188,14 +188,14 @@ export default function Hero() {
       {/* ── STATS STRIP ── */}
       <section className="bg-white border-t border-gray-100">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-y-10 lg:gap-y-0 lg:divide-x lg:divide-gray-100 py-10 lg:py-14">
+          <div className="grid grid-cols-4 gap-y-6 divide-x divide-gray-100 py-8 lg:py-14">
             {STATS.map(({ value, label, desc }) => (
-              <div key={label} className="flex flex-col items-center text-center px-4 lg:px-8">
-                <p className="font-display text-4xl lg:text-5xl font-bold text-brand-sky mb-2">{value}</p>
-                <p className="font-sans text-[11px] font-bold uppercase tracking-[0.15em] text-gray-400 mb-2">
+              <div key={label} className="flex flex-col items-center text-center px-2 lg:px-8">
+                <p className="font-display text-lg sm:text-3xl lg:text-5xl font-bold text-brand-sky mb-1 lg:mb-2 leading-none">{value}</p>
+                <p className="font-sans text-[8px] sm:text-[10px] font-bold uppercase tracking-[0.1em] text-gray-400 mb-1 leading-tight">
                   {label}
                 </p>
-                <p className="font-sans text-xs lg:text-sm text-gray-400 max-w-[200px] lg:max-w-none">{desc}</p>
+                <p className="hidden sm:block font-sans text-xs lg:text-sm text-gray-400 max-w-[200px] lg:max-w-none">{desc}</p>
               </div>
             ))}
           </div>

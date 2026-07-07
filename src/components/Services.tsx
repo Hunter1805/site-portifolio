@@ -65,6 +65,19 @@ export default function Services() {
             );
           })}
         </div>
+
+        {/* Botão discreto de CTA para Metodologia */}
+        <div className="mt-14 flex justify-center">
+          <a
+            href="#metodologia"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-gray-500 hover:text-brand-sky border border-gray-200 hover:border-brand-sky/40 px-6 py-3 rounded-full transition-all duration-200 group"
+          >
+            Ver como trabalhamos
+            <svg className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+            </svg>
+          </a>
+        </div>
       </div>
     </section>
   );
