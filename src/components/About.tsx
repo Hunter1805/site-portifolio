@@ -10,13 +10,13 @@ export default function About() {
         <Reveal className="md:col-span-5">
           <div className="relative">
             <div className="aspect-[4/5] bg-white rounded-md overflow-hidden border border-gray-100 relative">
-              <img 
-                src={elevateLogo} 
-                alt="Elevate Logo" 
+              <img
+                src={elevateLogo}
+                alt="Elevate Logo"
                 className="object-contain w-full h-full p-6"
               />
             </div>
-            <motion.div 
+            <motion.div
               className="absolute bottom-2 right-2 md:-bottom-8 md:-right-8 bg-gradient-to-br from-gray-900 via-slate-900 to-slate-950 p-4 md:p-5 shadow-[0_20px_40px_rgba(0,0,0,0.3)] rounded-xl w-44 md:w-52 border border-white/10 overflow-hidden backdrop-blur-md"
               animate={{
                 y: [0, -8, 0],
@@ -60,14 +60,14 @@ export default function About() {
             </motion.div>
           </div>
         </Reveal>
-        
+
         <Reveal className="md:col-span-7 md:pl-16 mt-16 md:mt-0">
           <span className="font-sans text-sm text-brand-sky uppercase tracking-[0.2em] font-medium block mb-2">Especialista</span>
           <h2 className="font-display text-4xl md:text-5xl font-bold text-gray-900 mb-6 tracking-tight leading-tight">
             Focado em resultados que cabem no seu bolso e tempo.
           </h2>
           <p className="font-sans text-lg text-gray-600 mb-8 leading-relaxed">
-            Faço sites para negócios que precisam de resultado. Cada projeto é planejado com foco em um objetivo claro: guiar o visitante até o contato direto com a sua empresa. Tudo — o layout, o copy, os botões — é construído para responder isso.
+            Faço sites para negócios que precisam de resultado. Cada projeto começa com uma pergunta simples: qual é o próximo passo que você quer que o cliente dê? Tudo — o layout, o copy, os botões — é construído para responder isso.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4 mb-8">
             {['Tailwind CSS Expert', 'Foco em Conversão', 'Performance Mobile', 'UI/UX Minimalista'].map((item, i) => (
