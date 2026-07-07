@@ -66,8 +66,8 @@ export default function Services() {
           })}
         </div>
 
-        {/* Botão discreto de CTA para Metodologia */}
-        <div className="mt-14 flex justify-center">
+        {/* Botão discreto de CTA para Metodologia — apenas mobile */}
+        <div className="mt-14 flex justify-center md:hidden">
           <a
             href="#metodologia"
             className="inline-flex items-center gap-2 text-sm font-semibold text-gray-500 hover:text-brand-sky border border-gray-200 hover:border-brand-sky/40 px-6 py-3 rounded-full transition-all duration-200 group"

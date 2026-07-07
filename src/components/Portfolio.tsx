@@ -131,10 +131,10 @@ export default function Portfolio() {
                     ))}
                   </div>
 
-                  {/* Botão Saiba Mais */}
+                  {/* Botão Saiba Mais — apenas mobile */}
                   <button
                     onClick={() => setOpenProject(project)}
-                    className={`w-full flex items-center justify-center gap-1.5 text-[10px] sm:text-xs font-bold uppercase tracking-[0.12em] py-2 sm:py-2.5 px-3 rounded-lg border transition-all duration-200 hover:opacity-70 ${project.textAccent} border-current bg-transparent`}
+                    className={`md:hidden w-full flex items-center justify-center gap-1.5 text-[10px] sm:text-xs font-bold uppercase tracking-[0.12em] py-2 sm:py-2.5 px-3 rounded-lg border transition-all duration-200 hover:opacity-70 ${project.textAccent} border-current bg-transparent`}
                   >
                     Saiba mais
                     <ArrowUpRight className="w-3 h-3 sm:w-3.5 sm:h-3.5" />

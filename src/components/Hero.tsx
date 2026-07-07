@@ -188,14 +188,14 @@ export default function Hero() {
       {/* ── STATS STRIP ── */}
       <section className="bg-white border-t border-gray-100">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-4 gap-y-6 divide-x divide-gray-100 py-8 lg:py-14">
+          <div className="grid grid-cols-4 gap-y-0 divide-x divide-gray-100 py-7 lg:py-14">
             {STATS.map(({ value, label, desc }) => (
-              <div key={label} className="flex flex-col items-center text-center px-2 lg:px-8">
-                <p className="font-display text-lg sm:text-3xl lg:text-5xl font-bold text-brand-sky mb-1 lg:mb-2 leading-none">{value}</p>
-                <p className="font-sans text-[8px] sm:text-[10px] font-bold uppercase tracking-[0.1em] text-gray-400 mb-1 leading-tight">
+              <div key={label} className="flex flex-col items-center text-center px-1 lg:px-8">
+                <p className="font-display text-base sm:text-3xl lg:text-5xl font-bold text-brand-sky mb-0.5 lg:mb-2 leading-none">{value}</p>
+                <p className="font-sans text-[7px] sm:text-[10px] lg:text-[11px] font-bold uppercase tracking-[0.08em] lg:tracking-[0.15em] text-gray-400 mb-0 lg:mb-2 leading-tight">
                   {label}
                 </p>
-                <p className="hidden sm:block font-sans text-xs lg:text-sm text-gray-400 max-w-[200px] lg:max-w-none">{desc}</p>
+                <p className="hidden lg:block font-sans text-sm text-gray-400">{desc}</p>
               </div>
             ))}
           </div>
