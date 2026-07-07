@@ -3,7 +3,7 @@ import { TrendingUp, Zap } from 'lucide-react';
 
 const STATS = [
   {
-    value: '15 dias',
+    value: 'Ágil',
     label: 'Da conversa ao site no ar',
     desc: 'Do briefing à entrega. Sem enrolação.',
   },
@@ -16,6 +16,11 @@ const STATS = [
     value: '8%',
     label: 'Taxa média de conversão',
     desc: 'Dos projetos que acompanhamos.',
+  },
+  {
+    value: '24/7',
+    label: 'Suporte Disponível',
+    desc: 'Parceria contínua após o site ir ao ar.',
   },
 ];
 
@@ -183,14 +188,14 @@ export default function Hero() {
       {/* ── STATS STRIP ── */}
       <section className="bg-white border-t border-gray-100">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-gray-100">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-y-10 lg:gap-y-0 lg:divide-x lg:divide-gray-100 py-10 lg:py-14">
             {STATS.map(({ value, label, desc }) => (
-              <div key={label} className="flex flex-col items-center text-center px-8 py-14">
-                <p className="font-display text-5xl font-bold text-brand-sky mb-2">{value}</p>
+              <div key={label} className="flex flex-col items-center text-center px-4 lg:px-8">
+                <p className="font-display text-4xl lg:text-5xl font-bold text-brand-sky mb-2">{value}</p>
                 <p className="font-sans text-[11px] font-bold uppercase tracking-[0.15em] text-gray-400 mb-2">
                   {label}
                 </p>
-                <p className="font-sans text-sm text-gray-400">{desc}</p>
+                <p className="font-sans text-xs lg:text-sm text-gray-400 max-w-[200px] lg:max-w-none">{desc}</p>
               </div>
             ))}
           </div>
