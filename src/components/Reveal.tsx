@@ -1,3 +1,4 @@
+import { ReactNode } from 'react';
 import { motion } from 'motion/react';
 
 export const fadeUpVariant = {
@@ -5,7 +6,7 @@ export const fadeUpVariant = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.4, 0, 0.2, 1] } }
 };
 
-export const Reveal = ({ children, className = '' }: { children: React.ReactNode, className?: string }) => {
+export const Reveal = ({ children, className = '' }: { children: ReactNode; className?: string; key?: any }) => {
   return (
     <motion.div
       variants={fadeUpVariant}

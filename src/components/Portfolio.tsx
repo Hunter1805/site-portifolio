@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Reveal } from './Reveal';
 import { portfolioData } from '../data';
 import { X, ArrowUpRight } from 'lucide-react';
+import TopProjectsModal from './TopProjectsModal';
 
 type Project = (typeof portfolioData)[number];
 
@@ -77,6 +78,7 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
 
 export default function Portfolio() {
   const [openProject, setOpenProject] = useState<Project | null>(null);
+  const [isTopProjectsOpen, setIsTopProjectsOpen] = useState(false);
 
   return (
     <>
@@ -143,13 +145,34 @@ export default function Portfolio() {
               </Reveal>
             ))}
           </div>
+
+          {/* Botão de Destaque: Top 3 Projetos */}
+          <div className="mt-12 flex justify-center">
+            <button
+              onClick={() => setIsTopProjectsOpen(true)}
+              className="group relative inline-flex items-center gap-3 bg-gradient-to-r from-slate-900 via-slate-800 to-slate-950 hover:from-black hover:to-slate-900 text-white font-sans text-xs sm:text-sm font-extrabold uppercase tracking-[0.15em] px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer border border-white/10"
+            >
+              {/* Indicador pulsante */}
+              <span className="relative flex h-2.5 w-2.5">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-sky opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-brand-sky"></span>
+              </span>
+              <span>🏆 Top 3 Projetos (Operação & Faturamento)</span>
+            </button>
+          </div>
         </div>
       </section>
 
-      {/* Modal */}
+      {/* Modal Padrão do Projeto */}
       {openProject && (
         <ProjectModal project={openProject} onClose={() => setOpenProject(null)} />
       )}
+
+      {/* Modal Top 3 Projetos */}
+      <TopProjectsModal
+        isOpen={isTopProjectsOpen}
+        onClose={() => setIsTopProjectsOpen(false)}
+      />
     </>
   );
 }
