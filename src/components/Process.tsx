@@ -110,7 +110,7 @@ export default function Process() {
                 if (el) refs.current.set(index, el);
               }}
               data-index={index}
-              className={`group transition-all duration-700 transform ${
+              className={`group transition-all duration-700 transform h-full ${
                 visibleItems.has(index)
                   ? 'opacity-100 translate-y-0'
                   : 'opacity-0 translate-y-8'
@@ -120,49 +120,51 @@ export default function Process() {
               }}
             >
               {/* Card */}
-              <div className="relative">
+              <div className="relative h-full">
                 {/* Connector Line */}
                 {index < steps.length - 1 && (
                   <div className="hidden md:block absolute top-16 left-[60%] w-[calc(100%-60%)] h-0.5 bg-gradient-to-r from-blue-600 to-transparent" />
                 )}
 
                 {/* Card Content */}
-                <div className="bg-white border border-slate-200 rounded-lg p-6 hover:shadow-lg transition-shadow duration-300">
-                  {/* Number */}
-                  <div className="mb-4">
-                    <span className="inline-flex items-center justify-center w-12 h-12 bg-blue-600 text-white font-bold rounded-full text-lg">
-                      {step.number}
-                    </span>
+                <div className="bg-white border border-slate-200 rounded-xl p-4 md:p-6 hover:shadow-lg transition-shadow duration-300 h-full flex flex-col justify-between">
+                  <div className="flex-1 flex flex-col">
+                    {/* Number */}
+                    <div className="mb-3 md:mb-4">
+                      <span className="inline-flex items-center justify-center w-10 h-10 md:w-12 md:h-12 bg-blue-600 text-white font-bold rounded-full text-sm md:text-lg">
+                        {step.number}
+                      </span>
+                    </div>
+
+                    {/* Icon */}
+                    <div className="mb-3 md:mb-4 text-blue-600 [&>svg]:w-6 [&>svg]:h-6 md:[&>svg]:w-8 md:[&>svg]:h-8">
+                      {step.icon}
+                    </div>
+
+                    {/* Title */}
+                    <h3 className="text-sm md:text-lg font-bold text-slate-900 mb-1 md:mb-2 leading-tight">
+                      {step.title}
+                    </h3>
+
+                    {/* Description */}
+                    <p className="text-slate-600 text-[11px] md:text-sm mb-4 leading-relaxed flex-1">
+                      {step.description}
+                    </p>
+
+                    {/* Details */}
+                    <ul className="hidden md:block space-y-2 mb-4">
+                      {step.details.map((detail, i) => (
+                        <li key={i} className="flex items-start gap-2 text-sm text-slate-600">
+                          <span className="w-1.5 h-1.5 bg-blue-600 rounded-full mt-1.5 flex-shrink-0" />
+                          {detail}
+                        </li>
+                      ))}
+                    </ul>
                   </div>
-
-                  {/* Icon */}
-                  <div className="mb-4 text-blue-600">
-                    {step.icon}
-                  </div>
-
-                  {/* Title */}
-                  <h3 className="text-lg font-bold text-slate-900 mb-2">
-                    {step.title}
-                  </h3>
-
-                  {/* Description */}
-                  <p className="text-slate-600 text-sm mb-4">
-                    {step.description}
-                  </p>
-
-                  {/* Details */}
-                  <ul className="space-y-2 mb-4">
-                    {step.details.map((detail, i) => (
-                      <li key={i} className="flex items-start gap-2 text-sm text-slate-600">
-                        <span className="w-1.5 h-1.5 bg-blue-600 rounded-full mt-1.5 flex-shrink-0" />
-                        {detail}
-                      </li>
-                    ))}
-                  </ul>
 
                   {/* Duration */}
-                  <div className="pt-4 border-t border-slate-200">
-                    <p className="text-xs font-semibold text-slate-600">
+                  <div className="pt-3 md:pt-4 border-t border-slate-100">
+                    <p className="text-[10px] md:text-xs font-semibold text-slate-600">
                       ⏱️ {step.duration}
                     </p>
                   </div>
