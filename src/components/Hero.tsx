@@ -64,7 +64,7 @@ export default function Hero() {
   return (
     <>
       {/* ── HERO ── */}
-      <section ref={ref} className="relative flex items-center overflow-hidden min-h-screen">
+      <section ref={ref} className="relative flex flex-col justify-center overflow-hidden min-h-screen pt-20">
 
         {/* Background */}
         <div className="absolute inset-0 bg-gradient-to-br from-sky-50 via-white to-slate-100 pointer-events-none" />
@@ -78,7 +78,35 @@ export default function Hero() {
         />
         <div className="absolute -top-40 -right-40 w-[560px] h-[560px] rounded-full bg-brand-sky/8 blur-3xl pointer-events-none" />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-6 w-full pt-32 pb-16 md:pt-36 md:pb-24">
+        {/* Letreiro Marquee no Mobile */}
+        <div className="w-full bg-brand-sky/5 border-b border-brand-sky/10 py-3 md:hidden z-10 relative">
+          <div className="relative w-full overflow-hidden whitespace-nowrap">
+            <div className="inline-block animate-marquee select-none">
+              <span className="mx-6 font-sans text-xs font-bold tracking-[0.15em] uppercase text-brand-sky">
+                Liderança em Crescimento Digital &nbsp;&nbsp;•&nbsp;&nbsp;
+              </span>
+              <span className="mx-6 font-sans text-xs font-bold tracking-[0.15em] uppercase text-brand-sky">
+                Liderança em Crescimento Digital &nbsp;&nbsp;•&nbsp;&nbsp;
+              </span>
+              <span className="mx-6 font-sans text-xs font-bold tracking-[0.15em] uppercase text-brand-sky">
+                Liderança em Crescimento Digital &nbsp;&nbsp;•&nbsp;&nbsp;
+              </span>
+            </div>
+            <div className="inline-block animate-marquee select-none" aria-hidden="true">
+              <span className="mx-6 font-sans text-xs font-bold tracking-[0.15em] uppercase text-brand-sky">
+                Liderança em Crescimento Digital &nbsp;&nbsp;•&nbsp;&nbsp;
+              </span>
+              <span className="mx-6 font-sans text-xs font-bold tracking-[0.15em] uppercase text-brand-sky">
+                Liderança em Crescimento Digital &nbsp;&nbsp;•&nbsp;&nbsp;
+              </span>
+              <span className="mx-6 font-sans text-xs font-bold tracking-[0.15em] uppercase text-brand-sky">
+                Liderança em Crescimento Digital &nbsp;&nbsp;•&nbsp;&nbsp;
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-6 w-full pt-10 pb-16 md:pt-16 md:pb-24">
           <div className="grid md:grid-cols-2 gap-14 lg:gap-20 items-center">
 
             {/* ── ESQUERDA: Texto ── */}
