@@ -78,7 +78,7 @@ export default function Hero() {
         />
         <div className="absolute -top-40 -right-40 w-[560px] h-[560px] rounded-full bg-brand-sky/8 blur-3xl pointer-events-none" />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-6 w-full pt-24 pb-16 md:pt-36 md:pb-24">
+        <div className="relative z-10 max-w-7xl mx-auto px-6 w-full pt-32 pb-16 md:pt-36 md:pb-24">
           <div className="grid md:grid-cols-2 gap-14 lg:gap-20 items-center">
 
             {/* ── ESQUERDA: Texto ── */}
@@ -86,7 +86,7 @@ export default function Hero() {
 
               {/* Badge */}
               <div
-                className={`${slide(0)} inline-flex items-center gap-2 self-start border border-brand-sky/20 bg-brand-sky/5 px-4 py-2 rounded-full mb-8`}
+                className={`${slide(0)} hidden md:inline-flex items-center gap-2 self-start border border-brand-sky/20 bg-brand-sky/5 px-4 py-2 rounded-full mb-8`}
                 style={{ transitionDelay: '0ms' }}
               >
                 <Zap className="w-3.5 h-3.5 text-brand-sky flex-shrink-0" />
