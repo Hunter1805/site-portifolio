@@ -1,46 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { TrendingUp, Zap } from 'lucide-react';
-
-const STATS = [
-  {
-    value: 'Ágil',
-    label: 'Da conversa ao site no ar',
-    desc: 'Do briefing à entrega. Sem enrolação.',
-  },
-  {
-    value: '100%',
-    label: 'Projetos entregues no prazo',
-    desc: 'Sempre. Sem desculpas.',
-  },
-  {
-    value: '8%',
-    label: 'Taxa média de conversão',
-    desc: 'Dos projetos que acompanhamos.',
-  },
-  {
-    value: '24/7',
-    label: 'Suporte Disponível',
-    desc: 'Parceria contínua após o site ir ao ar.',
-  },
-];
-
-const PROCESSO = [
-  {
-    step: '01',
-    title: 'Brief',
-    desc: 'Uma conversa de 30min para entender o negócio, o público e o objetivo real.',
-  },
-  {
-    step: '02',
-    title: 'Desenvolvimento',
-    desc: 'Design e código construídos do zero. Sem templates, sem atalhos.',
-  },
-  {
-    step: '03',
-    title: 'Entrega',
-    desc: 'Site no ar com domínio, hospedagem e WhatsApp integrado.',
-  },
-];
+import { TrendingUp, Play, Star } from 'lucide-react';
 
 export default function Hero() {
   const [visible, setVisible] = useState(false);
@@ -55,175 +14,237 @@ export default function Hero() {
     return () => obs.disconnect();
   }, []);
 
-  const slide = (delay: number) =>
-    `transition-all duration-500 ${visible
-      ? 'opacity-100 translate-y-0'
-      : 'opacity-0 translate-y-4'
-    }`;
+  const anim = (delay: number) =>
+    `transition-all duration-700 ease-out ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`;
 
   return (
     <>
       {/* ── HERO ── */}
-      <section ref={ref} className="relative flex flex-col justify-center overflow-hidden min-h-screen pt-20">
-
-        {/* Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-sky-50 via-white to-slate-100 pointer-events-none" />
+      <section
+        ref={ref}
+        className="relative flex flex-col justify-center overflow-hidden min-h-screen"
+        style={{ background: 'linear-gradient(135deg, #0c1322 0%, #0d1829 50%, #091020 100%)' }}
+      >
+        {/* Dot grid background */}
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
-            backgroundImage: 'radial-gradient(circle, #bae6fd 1px, transparent 1px)',
-            backgroundSize: '30px 30px',
-            opacity: 0.3,
+            backgroundImage: 'radial-gradient(circle, rgba(14,165,233,0.12) 1px, transparent 1px)',
+            backgroundSize: '32px 32px',
           }}
         />
-        <div className="absolute -top-40 -right-40 w-[560px] h-[560px] rounded-full bg-brand-sky/8 blur-3xl pointer-events-none" />
 
-        {/* Letreiro Marquee no Mobile */}
-        <div className="w-full bg-brand-sky/5 border-b border-brand-sky/10 py-3 md:hidden z-10 relative">
+        {/* Glow blobs */}
+        <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] rounded-full bg-brand-sky/8 blur-[120px] pointer-events-none" />
+        <div className="absolute bottom-1/3 right-1/4 w-[400px] h-[400px] rounded-full bg-sky-400/5 blur-[100px] pointer-events-none" />
+
+        {/* Marquee banner */}
+        <div className="w-full bg-brand-sky/10 border-b border-brand-sky/15 py-3 z-10 relative">
           <div className="relative w-full overflow-hidden whitespace-nowrap">
             <div className="inline-block animate-marquee select-none">
-              <span className="mx-6 font-sans text-xs font-bold tracking-[0.15em] uppercase text-brand-sky">
-                Liderança em Crescimento Digital &nbsp;&nbsp;•&nbsp;&nbsp;
-              </span>
-              <span className="mx-6 font-sans text-xs font-bold tracking-[0.15em] uppercase text-brand-sky">
-                Liderança em Crescimento Digital &nbsp;&nbsp;•&nbsp;&nbsp;
-              </span>
-              <span className="mx-6 font-sans text-xs font-bold tracking-[0.15em] uppercase text-brand-sky">
-                Liderança em Crescimento Digital &nbsp;&nbsp;•&nbsp;&nbsp;
-              </span>
+              {[...Array(6)].map((_, i) => (
+                <span key={i} className="mx-8 font-sans text-xs font-bold tracking-[0.18em] uppercase text-brand-sky/80">
+                  Liderança em Crescimento Digital &nbsp;&nbsp;•&nbsp;&nbsp;
+                </span>
+              ))}
             </div>
             <div className="inline-block animate-marquee select-none" aria-hidden="true">
-              <span className="mx-6 font-sans text-xs font-bold tracking-[0.15em] uppercase text-brand-sky">
-                Liderança em Crescimento Digital &nbsp;&nbsp;•&nbsp;&nbsp;
-              </span>
-              <span className="mx-6 font-sans text-xs font-bold tracking-[0.15em] uppercase text-brand-sky">
-                Liderança em Crescimento Digital &nbsp;&nbsp;•&nbsp;&nbsp;
-              </span>
-              <span className="mx-6 font-sans text-xs font-bold tracking-[0.15em] uppercase text-brand-sky">
-                Liderança em Crescimento Digital &nbsp;&nbsp;•&nbsp;&nbsp;
-              </span>
+              {[...Array(6)].map((_, i) => (
+                <span key={i} className="mx-8 font-sans text-xs font-bold tracking-[0.18em] uppercase text-brand-sky/80">
+                  Liderança em Crescimento Digital &nbsp;&nbsp;•&nbsp;&nbsp;
+                </span>
+              ))}
             </div>
           </div>
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-6 w-full pt-10 pb-16 md:pt-16 md:pb-24">
-          <div className="grid md:grid-cols-2 gap-14 lg:gap-20 items-center">
+        {/* Content */}
+        <div className="relative z-10 max-w-7xl mx-auto px-6 w-full pt-12 pb-20 md:pt-16 md:pb-28">
+          <div className="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
 
-            {/* ── ESQUERDA: Texto ── */}
+            {/* ── LEFT: Text ── */}
             <div className="flex flex-col">
 
-              {/* Badge */}
+              {/* Label */}
               <div
-                className={`${slide(0)} hidden md:inline-flex items-center gap-2 self-start border border-brand-sky/20 bg-brand-sky/5 px-4 py-2 rounded-full mb-8`}
+                className={`${anim(0)} inline-flex items-center gap-2 self-start mb-6`}
                 style={{ transitionDelay: '0ms' }}
               >
-                <Zap className="w-3.5 h-3.5 text-brand-sky flex-shrink-0" />
-                <span className="font-sans text-[11px] font-bold tracking-[0.15em] uppercase text-gray-500">
-                  Liderança em Crescimento Digital
+                <span className="font-sans text-[11px] font-bold tracking-[0.18em] uppercase text-brand-sky border border-brand-sky/30 bg-brand-sky/10 px-3 py-1.5 rounded-sm">
+                  Bem-vindo à Elevete
                 </span>
               </div>
 
-              {/* Headline — sem quebras forçadas */}
+              {/* Headline */}
               <h1
-                className={`${slide(100)} font-display font-bold text-gray-900 leading-[1.08] mb-6 text-[2.125rem] sm:text-[3.25rem] md:text-[3.75rem] lg:text-[4.25rem]`}
+                className={`${anim(0)} font-display font-bold text-white leading-[1.06] mb-6 text-[2.25rem] sm:text-[3rem] md:text-[3.5rem] lg:text-[4rem]`}
                 style={{ transitionDelay: '80ms' }}
               >
-                Transforme Seu Negócio em Uma{' '}
-                <em className="italic text-brand-sky">Máquina de Vendas Digital</em>
+                Onde a Expertise{' '}
+                <span className="block text-gradient-sky">Cria Excelência</span>
               </h1>
 
               {/* Subheadline */}
               <p
-                className={`${slide(0)} font-sans text-sm sm:text-base text-gray-500 max-w-md leading-relaxed mb-10`}
+                className={`${anim(0)} font-sans text-sm sm:text-base text-gray-400 max-w-md leading-relaxed mb-10`}
                 style={{ transitionDelay: '160ms' }}
               >
-                Sites feitos para converter — não para ganhar prêmio de design.
-                Cada projeto é planejado com foco em um objetivo claro: guiar o visitante até o contato direto com a sua empresa.
+                Transformamos presença digital em resultados reais. Sites, sistemas e estratégias construídas para converter visitantes em clientes — sem atalhos.
               </p>
 
               {/* CTAs */}
               <div
-                className={`${slide(0)} flex flex-col sm:flex-row gap-4 w-full sm:w-auto`}
+                className={`${anim(0)} flex flex-col sm:flex-row gap-4 mb-10`}
                 style={{ transitionDelay: '240ms' }}
               >
                 <a
                   href="#contato"
-                  className="inline-flex items-center justify-center gap-2.5 bg-slate-900 hover:bg-slate-800 text-white font-sans font-semibold text-sm px-7 py-4 rounded-lg transition-colors duration-200 shadow-lg shadow-slate-900/10 w-full sm:w-auto"
+                  className="inline-flex items-center justify-center gap-2.5 bg-brand-sky hover:bg-sky-400 text-white font-sans font-semibold text-sm px-8 py-4 rounded-md transition-all duration-200 shadow-lg shadow-brand-sky/30 hover:shadow-brand-sky/50 hover:-translate-y-0.5"
                 >
-                  Solicitar Orçamento
+                  Vamos Começar
                   <TrendingUp className="w-4 h-4" />
                 </a>
                 <a
                   href="https://wa.me/5538999908770"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2.5 bg-white border border-gray-200 hover:border-gray-400 text-gray-700 font-sans font-semibold text-sm px-7 py-4 rounded-lg transition-colors duration-200 w-full sm:w-auto"
+                  className="inline-flex items-center justify-center gap-2.5 glass-card text-white font-sans font-semibold text-sm px-8 py-4 rounded-md transition-all duration-200 hover:bg-white/10"
                 >
-                  Falar pelo WhatsApp
+                  <span className="w-8 h-8 flex items-center justify-center bg-brand-sky/20 rounded-full">
+                    <Play className="w-3 h-3 text-brand-sky fill-brand-sky" />
+                  </span>
+                  Ver Projetos
                 </a>
+              </div>
+
+              {/* Stars / social proof */}
+              <div
+                className={`${anim(0)} flex items-center gap-5`}
+                style={{ transitionDelay: '320ms' }}
+              >
+                {/* Avatars */}
+                <div className="flex -space-x-2">
+                  {['#0EA5E9','#38bdf8','#7dd3fc','#bae6fd'].map((c, i) => (
+                    <div
+                      key={i}
+                      className="w-8 h-8 rounded-full border-2 border-brand-dark flex items-center justify-center font-bold text-[10px] text-white"
+                      style={{ background: c }}
+                    >
+                      {['PV','MA','JC','LR'][i]}
+                    </div>
+                  ))}
+                  <div className="w-8 h-8 rounded-full border-2 border-brand-dark bg-brand-sky/20 flex items-center justify-center text-brand-sky font-bold text-[10px]">
+                    +
+                  </div>
+                </div>
+                <div>
+                  <div className="flex gap-0.5 mb-0.5">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-3.5 h-3.5 text-yellow-400 fill-yellow-400" />
+                    ))}
+                  </div>
+                  <p className="font-sans text-xs text-gray-400">
+                    <span className="font-bold text-white">4.9</span> (13/13) Clientes Satisfeitos
+                  </p>
+                </div>
               </div>
             </div>
 
-            {/* ── DIREITA: Card de Processo ── */}
+            {/* ── RIGHT: Floating Phones ── */}
             <div
-              className={`${slide(0)} relative flex items-center justify-center`}
-              style={{ transitionDelay: '160ms' }}
+              className={`${anim(0)} relative flex items-center justify-center min-h-[420px] md:min-h-[500px]`}
+              style={{ transitionDelay: '200ms' }}
             >
-              <div className="w-full max-w-[420px] bg-white rounded-2xl shadow-[0_20px_60px_rgba(15,23,42,0.08)] border border-gray-100 p-8">
-
-                <p className="font-sans text-[10px] font-bold text-gray-400 uppercase tracking-[0.18em] mb-7">
-                  Como funciona
-                </p>
-
-                {/* Etapas */}
-                <div className="flex flex-col">
-                  {PROCESSO.map(({ step, title, desc }, i) => (
-                    <div key={step} className="flex gap-4">
-                      {/* Linha de tempo */}
-                      <div className="flex flex-col items-center">
-                        <div className="w-9 h-9 rounded-full border-2 border-brand-sky/30 bg-brand-sky/5 flex items-center justify-center flex-shrink-0">
-                          <span className="font-display text-xs font-bold text-brand-sky">{step}</span>
-                        </div>
-                        {i < PROCESSO.length - 1 && (
-                          <div className="w-px bg-gray-100 flex-1 my-2 min-h-[20px]" />
-                        )}
-                      </div>
-
-                      {/* Conteúdo */}
-                      <div className={i < PROCESSO.length - 1 ? 'pb-7' : ''}>
-                        <p className="font-sans text-sm font-bold text-gray-900 mb-1">{title}</p>
-                        <p className="font-sans text-xs text-gray-500 leading-relaxed">{desc}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Rodapé do card */}
-                <div className="mt-7 pt-5 border-t border-gray-50 flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                    <span className="font-sans text-xs text-gray-500">Entrega em até 15 dias</span>
+              {/* Phone 1 — back, tilted right */}
+              <div
+                className="absolute animate-float-2 z-10"
+                style={{
+                  right: '2%',
+                  top: '8%',
+                  transform: 'rotate(5deg)',
+                  filter: 'drop-shadow(0 30px 60px rgba(0,0,0,0.6))',
+                }}
+              >
+                <div className="w-[140px] sm:w-[160px] md:w-[180px] bg-gray-950 rounded-[28px] p-[6px] border border-white/10 shadow-2xl">
+                  <div className="rounded-[22px] overflow-hidden bg-white">
+                    <img
+                      src="/hero-phones.png"
+                      alt="Preview do projeto web"
+                      className="w-full h-[260px] sm:h-[300px] md:h-[340px] object-cover object-left"
+                    />
                   </div>
-                  <span className="font-display text-xs font-bold text-brand-sky tracking-wide">Elevete ↗</span>
+                  {/* Notch */}
+                  <div className="absolute top-2 left-1/2 -translate-x-1/2 w-16 h-1.5 bg-gray-900 rounded-full" />
                 </div>
+              </div>
+
+              {/* Phone 2 — front, tilted left, lower */}
+              <div
+                className="absolute animate-float-1 z-20"
+                style={{
+                  left: '5%',
+                  bottom: '5%',
+                  transform: 'rotate(-3deg)',
+                  filter: 'drop-shadow(0 30px 60px rgba(0,0,0,0.7))',
+                }}
+              >
+                <div className="w-[155px] sm:w-[175px] md:w-[200px] bg-gray-950 rounded-[30px] p-[6px] border border-white/10 shadow-2xl">
+                  <div className="rounded-[24px] overflow-hidden bg-white">
+                    <img
+                      src="/hero-phones.png"
+                      alt="Preview do projeto web"
+                      className="w-full h-[280px] sm:h-[320px] md:h-[380px] object-cover object-right"
+                    />
+                  </div>
+                  {/* Notch */}
+                  <div className="absolute top-2 left-1/2 -translate-x-1/2 w-16 h-1.5 bg-gray-900 rounded-full" />
+                </div>
+              </div>
+
+              {/* Badge "25+" */}
+              <div className="absolute top-4 left-4 md:top-6 md:left-8 z-30 bg-brand-sky text-white rounded-xl px-4 py-3 shadow-lg shadow-brand-sky/30">
+                <p className="font-display text-2xl font-bold leading-none">25+</p>
+                <p className="font-sans text-[10px] font-semibold leading-tight mt-0.5 text-sky-100">Anos de<br/>Experiência</p>
+              </div>
+
+              {/* Card flutuante de projeto */}
+              <div className="absolute bottom-6 right-4 z-30 glass-card rounded-xl p-3 max-w-[140px] shadow-2xl">
+                <div className="flex items-center gap-2 mb-1.5">
+                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                  <span className="font-sans text-[9px] text-white/60 font-medium uppercase tracking-wider">Projeto Ativo</span>
+                </div>
+                <p className="font-display text-white text-xs font-bold leading-tight">Site no Ar em<br/>até 15 dias</p>
+              </div>
+
+              {/* Decorative glow ring */}
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                <div className="w-72 h-72 rounded-full border border-brand-sky/10" />
+                <div className="absolute w-48 h-48 rounded-full border border-brand-sky/15" />
               </div>
             </div>
 
           </div>
         </div>
+
+        {/* Bottom fade */}
+        <div className="absolute bottom-0 left-0 w-full h-24 pointer-events-none"
+          style={{ background: 'linear-gradient(to bottom, transparent, #080d1a)' }} />
       </section>
 
       {/* ── STATS STRIP ── */}
-      <section className="bg-white border-t border-gray-100">
+      <section className="bg-white border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-4 gap-y-0 divide-x divide-gray-100 py-7 lg:py-14">
-            {STATS.map(({ value, label, desc }) => (
-              <div key={label} className="flex flex-col items-center text-center px-1 lg:px-8">
-                <p className="font-display text-base sm:text-3xl lg:text-5xl font-bold text-brand-sky mb-0.5 lg:mb-2 leading-none">{value}</p>
-                <p className="font-sans text-[7px] sm:text-[10px] lg:text-[11px] font-bold uppercase tracking-[0.08em] lg:tracking-[0.15em] text-gray-400 mb-0 lg:mb-2 leading-tight">
-                  {label}
-                </p>
-                <p className="hidden lg:block font-sans text-sm text-gray-400">{desc}</p>
+          <div className="grid grid-cols-4 divide-x divide-gray-100 py-7 lg:py-12">
+            {[
+              { value: 'Ágil',  label: 'Da conversa ao site no ar', desc: 'Do briefing à entrega.' },
+              { value: '100%',  label: 'Projetos no prazo',          desc: 'Sempre. Sem desculpas.' },
+              { value: '8%',    label: 'Taxa de Conversão',          desc: 'Média dos projetos.' },
+              { value: '24/7',  label: 'Suporte Disponível',         desc: 'Parceria contínua.' },
+            ].map(({ value, label, desc }) => (
+              <div key={label} className="flex flex-col items-center text-center px-2 lg:px-8">
+                <p className="font-display text-base sm:text-2xl lg:text-4xl font-bold text-brand-sky mb-0.5 lg:mb-2 leading-none">{value}</p>
+                <p className="font-sans text-[7px] sm:text-[10px] lg:text-[11px] font-bold uppercase tracking-[0.1em] text-gray-400 mb-0 lg:mb-1 leading-tight">{label}</p>
+                <p className="hidden lg:block font-sans text-xs text-gray-400">{desc}</p>
               </div>
             ))}
           </div>
